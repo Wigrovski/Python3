@@ -7,4 +7,5 @@ b = b.split('-')
 aa = datetime.date(int(a[0]), int(a[1]), int(a[2]))
 bb = datetime.date(int(b[0]), int(b[1]), int(b[2]))
 delta = aa - bb
-print(abs(delta))
+delta = abs(delta)
+print(str(delta))
