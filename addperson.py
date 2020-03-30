@@ -1,6 +1,7 @@
 import time
 
 print('== Привет, это записная книжка ==')
+# Занесение данных и отображение всех записей
 agree = input("Заносим данные y/n ?: ")
 while agree == 'y':
     name = input('Введите имя: ')
@@ -20,3 +21,4 @@ file = open("phone.txt", 'r')
 f = file.read()
 print(f)
 file.close()
+# Система поиска по файлу
