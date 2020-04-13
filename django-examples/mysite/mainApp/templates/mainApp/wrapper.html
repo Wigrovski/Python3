@@ -5,11 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=egde">
     <title> Заголовок </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
 </head>
 
-<body style="background-color: grey">
-    {% block content %}
-    {% endblock %}
+<body>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1> {% include "mainApp/includes/title.html" %} </h1>
+        {% block content %}
+        {% endblock %}
+        <p>
+        <a href="/" class="btn btn-success btn-lg">Главная страница</a>
+        <a href="/news" class="btn btn-primary btn-lg">Новости>></a>
+            <a href="/contact" class="btn btn-info btn-lg">Контакты</a>
+
+      </p>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <img src="{% static 'mainApp/image/Mechanizm1.jpg' %}" class="img-thumbnail">
+        <hr>
+        &copy; Все права защищены 2020
+    </div>
+</div>
 
 </body>
 </html>
