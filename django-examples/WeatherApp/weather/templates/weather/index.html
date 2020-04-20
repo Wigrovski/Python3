@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=egde">
+    <title> Погодное приложение </title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">SolarLife</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="#">Главная</a>
+    <a class="p-2 text-dark" href="#">Информация</a>
+    <a class="p-2 text-dark" href="#">Контакт</a>
+
+  </nav>
+  <a class="btn btn-outline-primary href="admin" >Вход</a>
+</div>
+
+<div class="mt-2 cotainer">
+    <div class="row">
+        <div class="col-5 offset-1">
+            <h1>Погода в вашем городе</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="city">Город</label>
+                {{ form.name }}
+                <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+            </form>
+        </div>
+        <div class="col-4 offset-1">
+        <h1>Информация</h1>
+
+            {%  for info in all_info %}
+            <div class="alert alert-info ">
+                <div class="row">
+                    <div class="col-9">
+                        <b>Город: </b>{{ info.city }}<br>
+                        <b>Температура: </b>{{ info.temp }}<sup>o</sup><br>
+                    </div>
+                    <div class="col-2 offset-1">
+                        <img src="http://openweathermap.org/img/w/{{ info.icon }}.png", class="img-thumbail">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
